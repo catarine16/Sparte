@@ -1,0 +1,174 @@
+body {
+
+    margin: 0;
+    padding: 0;
+   
+  }
+  .intro{
+    text-align: center;
+    color: #393131;
+    margin-top: 90px;
+    font-size: 35pt;
+    
+  }
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+  
+  }
+  .card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.732);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  .card h2 {
+    margin-top: 0;
+    color: white;
+    text-align: center;
+  }
+  .card p {
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+    
+  }
+  .card-list {
+    list-style-type: none;
+    padding: 0;
+  
+  }
+  .card-list li {
+    margin-bottom: 5px;
+  }
+  .card-list a{
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  #danca{
+    background-color: #9498ff;
+  
+  }
+  #danca a {
+    color: #02123e;
+    font-weight: bold;
+  
+  }
+  #danca h2{
+     color: #032277;
+  }
+  #danca p{
+    color: #032277;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+  }
+  
+  #danca a:hover{
+    color: #5255b4;
+  }
+  
+  #music{
+    background-color: #f3ee5d; 
+  }
+  #music a {
+    color: #dfb119;
+  }
+  #music h2 {
+    color: rgb(230, 174, 45);
+  }
+  #music p{
+    color: rgb(230, 174, 45);
+  }
+  
+  #music a:hover{
+    color: #f4a472;
+  }
+  #teatro{
+    background-color: #98FB98;
+  
+  }
+  #teatro a{
+    color: #2e5c00;
+  }
+  #teatro a:hover{
+    color: #264904;
+  }
+  #teatro h2 {
+    color: #436d1c;
+  }
+  #teatro p{
+    color: #436d1c
+  }
+  #desenho{
+  background-color: #f569b8;
+  }
+  #desenho h2 {
+    color: rgb(119, 0, 91);
+  }
+  #desenho p{
+    color: rgb(119, 0, 91);
+  }
+  #desenho a {
+    color: #e22373;
+  }
+  #desenho a:hover{
+    color: #5b0227;
+  }
+  #dd{
+    background-color: #f4a3a3;
+  }
+  #dd a {
+    color: rgb(213, 62, 62);
+  }
+  #dd a:hover{
+    color: #741515;
+  } 
+  #dd h2{
+    color: #b73434;
+  }
+  #dd p{
+    color: #b73434;
+  }
+  #anm{
+  background-color: #c15df3;
+  
+  }
+  #anm a{
+    color: rgb(84, 1, 84);
+  }
+  #anm a:hover{
+    color: #8f26c3;
+  }
+  #anm h2{
+    color: #4a046d;
+  }
+  #anm p{
+    color: #4a046d;
+  }
+  .imagem-do-cartao {
+    margin-top: 30px;
+   text-align: center;
+  }
+  /* responsividade */
+  /* Estilos para dispositivos móveis */
+  @media only screen and (max-width: 600px) {
+      /* Adicione estilos específicos para dispositivos móveis aqui */
+    }
+    
+    /* Estilos para notebooks e tablets */
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+      /* Adicione estilos específicos para notebooks e tablets aqui */
+    }
+    
+    /* Estilos para monitores médios e grandes */
+    @media only screen and (min-width: 1025px) {
+      /* Adicione estilos específicos para monitores médios e grandes aqui */
+    }
+    

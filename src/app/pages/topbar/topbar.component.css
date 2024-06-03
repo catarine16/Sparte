@@ -1,0 +1,291 @@
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    z-index: 999;
+}
+
+
+.navbar img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    right: 12px;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    margin-top: -11.75rem;
+}
+
+
+.navbar li{
+  margin-top: 1.25rem;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 180px;
+    height: 100%;
+    background: url("/assets/img/fundo-nav.png") no-repeat center/cover;
+    transition: left 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar li {
+    padding: 20px;
+}
+
+.navbar a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #272727;
+    padding: 0px;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    font-optical-sizing: auto;
+    font-size: 17px;
+    position: relative;
+}
+
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #a1072e;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #1d1d1d;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+    background-color: #811300;
+}
+
+
+.navbar button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #535353;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+}
+
+.navbar button:hover {
+    color: #d8800c;
+    background-color: #b95a2e;
+}
+
+a.item {
+    font-size: 13pt;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 60px;
+    margin-left: 70px;
+    font-weight: 600;
+    color: #3d3d3d;
+    position: relative;
+}
+
+a.item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #4e006d;
+    transition: width 0.3s ease-in-out;
+}
+
+a.item:hover::before {
+    width: 100%;
+    background-color: #735286;
+}
+
+
+.head-hd {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    height: 65px;
+}
+
+/*//////////////////////////*/
+
+
+.head-item {
+    margin-right: 245px;
+    text-align: center;
+}
+
+.menu-icon {
+    color: #7e0d05;
+    font-size: 1.875rem; /* 30px convertido para rem */
+    margin-right: 1.875rem; /* 30px convertido para rem */
+    cursor: pointer;
+    padding-left: 1.25rem; /* 20px convertido para rem */
+}
+
+
+
+/* RESPONSIVIDADEZINHA */
+/* Estilos para dispositivos móveis */
+@media only screen and (max-width: 599) {
+    .navbar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 15%;
+        padding: 7px;
+        z-index: 1000;
+        font-size: 7pt;
+    }
+
+}
+/* Estilos para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 35%;
+        padding: 7px;
+        z-index: 1000;
+        font-size: 7pt;
+    }
+    .navbar img{
+      width: -2rem; /* Reduzindo a largura da imagem */
+      height: -2rem; /* Reduzindo a altura da imagem */
+      margin-top: -1rem;
+      margin-left: 2.2rem ;
+  }
+.navbar li{
+  margin-top: 1.25rem;
+}
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 60px;
+        margin-left: 10px;
+    }
+
+    .nav-links li {
+        margin-bottom: 10px;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 24px;
+        color: rgb(102, 5, 5);
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .head-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .head-hd .nav {
+        display: none;
+    }
+
+    .head-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-input {
+        width: 20px;
+        padding: 5px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .topbar {
+        display: none;
+    }
+
+
+    .search-container {
+        display: none;
+    }
+
+    .head-link {
+        margin-left: 7rem;
+    }
+
+    .perfil {
+        display: none;
+    }
+
+    .head-link {
+       align-items: center;
+    }
+  }
+
+  @media (min-width: 601px) and (max-width: 1135px) {
+    .perfil {
+        display: none;
+    }
+    .head-link {
+        margin-left: 22px;
+    }
+    a.nav {
+        font-size: medium;
+        margin-left: 40px;
+    }
+    .navbar img {
+        width: 80px;
+        height: 80px;
+        margin-top: -10.5rem;
+        margin-left: 2.2rem;
+    }
+}
+
+
+/* Estilos para monitores médios e grandes */
+@media (min-width: 1136px) {
+    /* Adicione qualquer estilo específico para telas grandes aqui */
+}

@@ -1,0 +1,136 @@
+.container {
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin-top: 5%;
+   
+  }
+   
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+   
+  .person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    width: 44%;
+    border-radius: 20px;
+    padding: 30px;
+  }
+   
+  .person img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+   
+  .details {
+    text-align: center;
+  }
+   
+  .name {
+    font-weight: bolder;
+    font-size: 18pt;
+   
+  }
+   
+  .role {
+    font-size: 12pt;
+    font-weight: bolder;
+  }
+   
+  .person1 {
+    background-color:  #B19CD9  ; /* Cor da primeira pessoa */
+  }
+   
+  .person2 {
+    background-color:   #FF9A8B /* Cor da segunda pessoa */
+  }
+   
+  .person3 {
+    background-color: #FFE082; /* Cor da terceira pessoa */
+  }
+   
+  .person4 {
+    background-color: #A7C5EB;    ; /* Cor da quarta pessoa */
+  }
+  .container-sparte{
+    background-color: #ffb765;
+    margin: 0 auto;
+    width: 90%;
+    line-height: 1.5;
+   font-size: medium;
+   padding: 50px;
+   border-radius: 30px;
+   margin-top: 10%;
+  }
+   
+  .imagem{
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+  }
+  .nh{
+    color: #FFF8E1;
+    font-weight: bolder;
+    text-align: center;
+  }
+  .ps {
+    color: #FFF8E1;
+    font-weight: bold;
+    font-size: medium;
+  }
+  .spa {
+    color: #c95919;
+    font-size: 20pt;
+    text-align: center;
+   
+  }
+  .fn{
+    text-align: center;
+    color: rgb(51, 51, 51);
+    font-size: 30pt;
+  }
+  /* responsividade */
+  /* Estilos para dispositivos móveis */
+  @media only screen and (max-width: 600px) {
+   
+  .container-sparte{
+  width: 80%;
+  }
+  .imagem{
+   width: 150px;
+  }
+  .ps{
+    font-size: medium;
+    font-weight: bolder;
+  }
+  .spa{
+    font-size: larger;
+    font-weight: 9000;
+  }
+  .person{
+    width: 95%;
+  }
+  .fn{
+    font-size: 30pt;
+  }
+  .container{
+    margin-top: 30%;
+  }
+  }
+   
+  /* Estilos para notebooks e tablets */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Adicione estilos específicos para notebooks e tablets aqui */
+  }
+   
+  /* Estilos para monitores médios e grandes */
+  @media only screen and (min-width: 1025px) {
+    /* Adicione estilos específicos para monitores médios e grandes aqui */
+  }
+   

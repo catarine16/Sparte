@@ -1,0 +1,27 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header>
+    <nav class="navbar">
+        <img src="/assets/img/kam2.png" id="user_avatar" alt="Avatar">
+       <button class="close-button" (click)="toggleNavbar()">&#10006;</button>
+    <ul >
+      <li><a href="/"><i class="bx bx-home"></i> Home</a></li>
+      <li><a href="/login"><i class="bx bx-log-in"></i> Login</a></li>
+      <li><a href="/arts"><i class="bx bx-palette"></i> Os artistas</a></li>
+      <li><a href="/estudos"><i class="bx bx-book"></i> Onde estudar?</a></li>
+      <li><a href="/inspiracao"><i class="bx bx-lightbulb"></i> Inspire-se</a></li>
+      <li><a href="/sobrenos"><i class="bx bx-info-circle"></i> Sobre nós</a></li>
+  </ul>
+    </nav>
+    <ul class="head-hd">
+        <div class="menu-icon" (click)="toggleNavbar()">&#9776;</div>
+        <div class="head-item">
+            <a class="head-link" href="/"><img src="./assets/img/logo-sparte.png" alt="" width="120px" style="margin-left: 10px;"></a>
+          </div>
+          <a href="/"class="item" style="color: #3d3d3d;" >Home </a>
+          <a href="/arts" class="item" style="color: #3d3d3d;">Os artistas</a>
+          <a href="/sobrenos" class="item" style="color: #3d3d3d;">Sobre nós</a>
+          <a href="/inspiracao" class="item" style="color: #3d3d3d;">Inspire-se</a>
+            <a class="perfil" href="/login">
+              <i class='bx bxs-user-circle' style="color: #97b919; font-size: 60px;"></i>
+            </a>
+          </ul>
