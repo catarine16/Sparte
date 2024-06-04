@@ -12,6 +12,13 @@ import { InspiracaoComponent } from './pages/inspiracao/inspiracao.component';
 import { EstudosComponent } from './pages/estudos/estudos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TopbarComponent } from './pages/topbar/topbar.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { environment } from '../environments/environment';
+import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +31,21 @@ import { TopbarComponent } from './pages/topbar/topbar.component';
     InspiracaoComponent,
     EstudosComponent,
     HomeComponent,
-    TopbarComponent
+    TopbarComponent,
+    AuthenticatorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatBottomSheetModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(){
+    FirebaseTSApp.init(environment.firebaseConfig);
+  }
+}
