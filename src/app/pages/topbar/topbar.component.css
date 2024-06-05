@@ -31,7 +31,7 @@ header {
     left: -100%;
     width: 180px;
     height: 100%;
-    background: url("/assets/img/fundo-nav.png") no-repeat center/cover;
+    background: url("/img/fundo-nav.png") no-repeat center/cover;
     transition: left 0.5s;
     display: flex;
     flex-direction: column;

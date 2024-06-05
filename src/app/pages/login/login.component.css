@@ -1,0 +1,35 @@
+#auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+#log-content{
+    width: 100%;
+    max-width: 30em;
+    padding: 1.5em;
+}
+
+button{
+    margin: .5em;
+    font-family: "Poppins", sans-serif;
+    background-color: #b288ff;
+    
+   
+}
+input{
+    width: 100%;
+    padding: 1em;
+    margin: .5em 0;
+    border-radius: 9px;
+    outline: none;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box ;
+}

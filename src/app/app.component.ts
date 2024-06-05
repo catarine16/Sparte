@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { LoginComponent } from './pages/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,7 @@ export class AppComponent {
   title = 'Sparte';
   ngOnInit(): void {
     const img: HTMLImageElement = document.createElement("img");
-    img.src = "/assets/img/back2.png";
+    img.src = " /img/back2.png";
     img.style.position = "fixed";
     img.style.top = "0";
     img.style.left = "0";
@@ -17,5 +19,11 @@ export class AppComponent {
     img.style.height = "100vh";
     img.style.zIndex = "-1";
     document.body.appendChild(img);
+  }
+  constructor (private loginSheet: MatBottomSheet){
+
+  }
+  onloginClick(){
+    this.loginSheet.open (LoginComponent)
   }
 }

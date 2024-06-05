@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//pages
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -12,12 +13,17 @@ import { InspiracaoComponent } from './pages/inspiracao/inspiracao.component';
 import { EstudosComponent } from './pages/estudos/estudos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TopbarComponent } from './pages/topbar/topbar.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
-import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { environment } from '../environments/environment';
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
+//angular material
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+//firebase
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+
+
 
 
 @NgModule({
@@ -38,6 +44,9 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     BrowserModule,
     AppRoutingModule,
     MatBottomSheetModule,
+    MatButtonModule,
+    MatBottomSheetModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()
