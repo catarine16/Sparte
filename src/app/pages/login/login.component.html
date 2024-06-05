@@ -9,14 +9,21 @@
 <button mat-flat-button color="warm"> Login </button>
 </div>
 <div *ngIf="isCriacaoState()">
-    <input placeholder="Email">
-    <input placeholder="Senha">
-    <input placeholder="Confirmar Senha">
-    <button mat-flat-button color="warm"> Registrar </button>
+    <input #registerEmail placeholder="Email">
+    <input #registerPassword placeholder="Senha">
+    <input #registerConfirmPassword placeholder="Confirmar Senha">
+    <button
+        (click)="Criacao(
+            registerEmail,
+            registerPassword,
+            registerConfirmPassword,
+        )"
+    mat-flat-button color="warm"> Registrar </button>
 </div>
 <div *ngIf="isEsquecimentoState()">
-    <input placeholder="Email">
-     <button mat-flat-button color="warm"> Enviar email de recuperação </button>
+    <input #resetEmail placeholder="Email">
+     <button (click)="onResetClick(resetEmail)"
+     mat-flat-button color="warm"> Enviar email de recuperação </button>
 </div>
 <mat-card-actions align="end">
     <button mat-flat-button (click)="Esquecimento()"> Esquecer Senha</button>
