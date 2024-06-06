@@ -70,17 +70,17 @@ export class LoginComponent implements OnInit {
       this.isNotEmpty(confirmPassword) &&
       this.isAMatch(password, confirmPassword)
     ){
-      this.firebasetsAuth;createAccountWith(
+      this.firebasetsAuth;createAccountWith( //aqui
         {
           email: email,
           password: password,
-          onComplete: uc => {
+          onComplete: uc => { //aqui
             alert("Conta criada com sucesso.");
             registerEmail.value = "";
             registerPassword.value = "";
             registerConfirmPassword.value = ""; 
           },
-          onFail: err => {
+          onFail: err => { //aqui
             alert("Erro ao criar a conta.");
           }
         }
