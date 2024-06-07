@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { Router } from '@angular/router';
+import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,11 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Sparte';
+  auth = new FirebaseTSAuth();
+  firestore = new FirebaseTSFirestore();
+  userHasProfile = true;
+  userDocument: UserDocument;
+
   ngOnInit(): void {
     const img: HTMLImageElement = document.createElement("img");
     img.src = " /img/back2.png";
@@ -24,7 +30,6 @@ export class AppComponent {
     document.body.appendChild(img);
   }
 
-  auth = new FirebaseTSAuth();
   constructor (private loginSheet: MatBottomSheet,
     private router: Router
   ){
@@ -40,13 +45,27 @@ export class AppComponent {
               this.router.navigate(["verificarEmail"]);
             },
             whenSignedInAndEmailVerified: user => {
-              
+              this.getUserProfile();
             },
             whenChanged: user => {
               
             },
           }
         );
+      }
+    );
+  }
+
+  getUserProfile(){
+    this.firestore.listenToDocument(
+      {
+        name: "Pegando Documento",
+        path: ["Users", this.auth.getAuth().currentUser.uid],
+        onUpdate: (result) => {
+          this.userDocument = <UserDocument>result.data();
+
+          this.userHasProfile = result.exists;
+        }
       }
     );
   }
@@ -62,4 +81,9 @@ export class AppComponent {
   onloginClick(){
     this.loginSheet.open (LoginComponent)
   }
+}
+
+export interface UserDocument {
+  publicName: string;
+  description: string;  
 }

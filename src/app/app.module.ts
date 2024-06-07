@@ -23,6 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
 //firebase
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { VerificarEmailComponent } from './pages/verificar-email/verificar-email.component';
+import { PerfilComponent } from './tools/perfil/perfil.component';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 
 
 
@@ -40,7 +42,8 @@ import { VerificarEmailComponent } from './pages/verificar-email/verificar-email
     HomeComponent,
     TopbarComponent,
     AuthenticatorComponent,
-    VerificarEmailComponent
+    VerificarEmailComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
