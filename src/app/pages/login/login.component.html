@@ -4,31 +4,34 @@
             <mat-card-title > {{getStateText()}}  </mat-card-title>
         </mat-card-header>
 <div *ngIf="isEntradaState()">
-<input placeholder="Email"/>
-<input placeholder="Senha" type="password">
-<button mat-flat-button color="warm"> Login </button>
+<input #loginEmail placeholder="Email"/>
+<input #loginPassword placeholder="Senha" type="password">
+<button mat-flat-button color="warm"
+(click)="onLogin(
+    loginEmail,
+    loginPassword
+)"> Login </button>
 </div>
 <div *ngIf="isCriacaoState()">
     <input #registerEmail placeholder="Email">
-    <input #registerPassword placeholder="Senha">
-    <input #registerConfirmPassword placeholder="Confirmar Senha">
-    <button
-        (click)="Criacao(
-            registerEmail,
-            registerPassword,
-            registerConfirmPassword,
-        )"
-    mat-flat-button color="warm"> Registrar </button>
+    <input #registerPassword placeholder="Senha" type="password">
+    <input #registerConfirmPassword placeholder="Confirmar Senha" type="password">
+    
+    <button (click)="onRegisterClick(
+        registerEmail,
+        registerPassword,
+        registerConfirmPassword
+    )" color="warm"> Registrar </button>
 </div>
+  
 <div *ngIf="isEsquecimentoState()">
     <input #resetEmail placeholder="Email">
-     <button (click)="onResetClick(resetEmail)"
-     mat-flat-button color="warm"> Enviar email de recuperação </button>
+     <button (click)="onReset(resetEmail)" mat-flat-button color="warm"> Enviar email de recuperação </button>
 </div>
 <mat-card-actions align="end">
-    <button mat-flat-button (click)="Esquecimento()"> Esquecer Senha</button>
-    <button mat-flat-button (click)="Criacao()"> Registrar</button>
-    <button mat-flat-button (click)="Entrada()"> Entrar </button>
+    <button mat-flat-button (click)="onEsquecimento()"> Esquecer Senha</button>
+    <button mat-flat-button (click)="onCriacao()"> Registrar</button>
+    <button mat-flat-button (click)="onEntrada()"> Entrar </button>
 </mat-card-actions>
     </mat-card>
 
