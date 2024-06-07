@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 //firebase
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { VerificarEmailComponent } from './pages/verificar-email/verificar-email.component';
 
 
 
@@ -38,7 +39,8 @@ import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
     EstudosComponent,
     HomeComponent,
     TopbarComponent,
-    AuthenticatorComponent
+    AuthenticatorComponent,
+    VerificarEmailComponent
   ],
   imports: [
     BrowserModule,

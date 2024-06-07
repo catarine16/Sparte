@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,8 +10,7 @@ export class LoginComponent implements OnInit {
   state = LoginCompState.LOGIN
   firebasetsAuth: FirebaseTSAuth;
 
-
-  constructor() {
+  constructor(private bottomSheetReef: MatBottomSheetRef) {
     this.firebasetsAuth = new FirebaseTSAuth();
   }
   ngOnInit(): void {
@@ -24,7 +24,7 @@ onReset( resetEmail: HTMLInputElement
       {
       email: email,
       onComplete: (err) => {
-      alert(`Email de redefinição enviado para ${email}`);
+        this.bottomSheetReef.dismiss();
       }
       });
   }
@@ -41,7 +41,7 @@ onLogin( loginEmail: HTMLInputElement,
         email: email,
         password: password ,
         onComplete: (uc) => {
-           alert ("Logado")
+          this.bottomSheetReef.dismiss();
         },
         onFail: (err) => {
           alert (err);
@@ -72,10 +72,7 @@ onLogin( loginEmail: HTMLInputElement,
           email: email,
           password: password,
           onComplete: (uc) => {
-            alert("Conta criada com sucesso!!!")
-            registerEmail.value ="";
-            registerPassword.value = "";
-            registerConfirmPassword.value = "";
+            this.bottomSheetReef.dismiss();
           },
           onFail: (err) => {
             alert("Falha ao criar conta")

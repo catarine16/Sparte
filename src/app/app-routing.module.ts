@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 import { EstudosComponent } from './pages/estudos/estudos.component';
+import { VerificarEmailComponent } from './pages/verificar-email/verificar-email.component';
 
 const routes: Routes = [
   {path: '', component: MainscreenComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'estudos', component: EstudosComponent},
   {path:'arts', component: ArtsComponent},
   {path: 'inspiracao', component: InspiracaoComponent},
-  
+  {path: "verificarEmail", component: VerificarEmailComponent},
 
 ];
 

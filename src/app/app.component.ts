@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { LoginComponent } from './pages/login/login.component';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +23,42 @@ export class AppComponent {
     img.style.zIndex = "-1";
     document.body.appendChild(img);
   }
-  constructor (private loginSheet: MatBottomSheet){
 
+  auth = new FirebaseTSAuth();
+  constructor (private loginSheet: MatBottomSheet,
+    private router: Router
+  ){
+    this.auth.listenToSignInStateChanges(
+      user => {
+        this.auth.checkSignInState(
+          {
+            whenSignedIn: user => {
+            },
+            whenSignedOut: user => {
+            },
+            whenSignedInAndEmailNotVerified: user => {
+              this.router.navigate(["verificarEmail"]);
+            },
+            whenSignedInAndEmailVerified: user => {
+              
+            },
+            whenChanged: user => {
+              
+            },
+          }
+        );
+      }
+    );
   }
+
+  onLogoutClick(){
+    this.auth.signOut();
+  }
+
+  loggedIn(){
+    return this.auth.isSignedIn();
+  }
+
   onloginClick(){
     this.loginSheet.open (LoginComponent)
   }
