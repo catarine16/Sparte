@@ -30,6 +30,7 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FeedComponent } from './pages/feed/feed.component';
 import { PostagemComponent } from './tools/postagem/postagem.component';
 import { PostComponent } from './tools/post/post.component';
+import { ReplyComponent } from './tools/reply/reply.component';
 
 
 
@@ -51,7 +52,8 @@ import { PostComponent } from './tools/post/post.component';
     PerfilComponent,
     FeedComponent,
     PostagemComponent,
-    PostComponent
+    PostComponent,
+    ReplyComponent
   ],
   imports: [
     BrowserModule,

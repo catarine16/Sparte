@@ -1,10 +1,10 @@
 <div id="perfil" [ngClass]="{'active': show, 'idle': !show}">
     <div id="perfil-content">
         <input #nameInput placeholder="nome">
-        <textarea #descricaoInput placeholder="Descrição"></textarea>
+        <textarea #descriptionInput placeholder="Descrição"></textarea>
         <button (click)="onContinuarClick(
             nameInput,
-            descricaoInput
+            descriptionInput
         )" mat-flat-button color="warm"> Continuar </button>
     </div>
 </div>

@@ -21,16 +21,16 @@ export class PerfilComponent implements OnInit {
   }
   onContinuarClick(
     nameInput: HTMLInputElement,
-    descricaoInput: HTMLTextAreaElement
+    descriptionInput: HTMLTextAreaElement
 
   ){
     let name = nameInput.value;
-    let descricao = descricaoInput.value;
+    let description = descriptionInput.value;
     this.firestore.create({
       path: ["Users",  this.auth?.getAuth()?.currentUser?.uid || '{}'],
       data:{
             publlicName: name,
-            descricao: descricao,
+            description: description,
       },
       onComplete: (docId) =>{
         alert ("Perfil Criado")
