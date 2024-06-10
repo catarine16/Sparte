@@ -29,6 +29,7 @@ import { PerfilComponent } from './tools/perfil/perfil.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FeedComponent } from './pages/feed/feed.component';
 import { PostagemComponent } from './tools/postagem/postagem.component';
+import { PostComponent } from './tools/post/post.component';
 
 
 
@@ -49,7 +50,8 @@ import { PostagemComponent } from './tools/postagem/postagem.component';
     VerificarEmailComponent,
     PerfilComponent,
     FeedComponent,
-    PostagemComponent
+    PostagemComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
