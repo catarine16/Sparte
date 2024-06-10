@@ -1,4 +1,4 @@
-#auth{
+#auth {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,30 +6,32 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-}
-#log-content{
-    width: 100%;
-    max-width: 30em;
-    padding: 1.5em;
+    
+    
+
 }
 
-button{
-    margin: .5em;
-    font-family: "Poppins", sans-serif;
-    background-color: #b288ff;
-    
-   
+#login-content {
+    width: 100%;
+    max-width: 30em;
+    padding: 1.em;
+    border-radius: 30px;
 }
-input{
+
+
+button {
+    margin: .5em;
+    border-radius: 25px;
+}
+
+input {
     width: 100%;
     padding: 1em;
-    margin: .5em 0;
-    border-radius: 9px;
+    margin: .9em 0;
+    border-radius: 20px;
     outline: none;
-    border: 1px solid #fff;
+    border: 1px solid rgba(15, 15, 15, .3);
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box ;
+    -webkit-box-sizing: border-box;
 }

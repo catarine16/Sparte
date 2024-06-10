@@ -7,10 +7,25 @@
 
 <body>
   <app-topbar></app-topbar>
-  
+    <!-- <div id="nav-bar">
+    <div id="nav-bar-content">
+        <div id="nav-bar-left">
+     
+        </div>
+        <div id="nav-bar-right">
+            <div *ngIf="!loggedIn()" (click)="onloginClick()" class="nav-bar-items">Login</div>
+            <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items" >
+              Hello, {{userDocument.publicName}}
+            </div>
+            <div  *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items" >Logout</div>
+        </div>
+    </div>
+</div> --> 
+ <!-- isso aqui tem dois roles: 1- não tá mostrando o nome depois do Hello 2- e tem que junto isso no navbar -->
 
     
   <router-outlet></router-outlet>
+  <app-perfil [show]="loggedIn() && !userHasProfile"></app-perfil>
 </body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

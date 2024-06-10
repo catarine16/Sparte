@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { LoginComponent } from './pages/login/login.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { Router } from '@angular/router';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 
@@ -16,7 +15,8 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument: UserDocument;
+  userDocument!: UserDocument
+
 
   ngOnInit(): void {
     const img: HTMLImageElement = document.createElement("img");
@@ -30,9 +30,9 @@ export class AppComponent {
     document.body.appendChild(img);
   }
 
-  constructor (private loginSheet: MatBottomSheet,
+  constructor(private loginSheet: MatBottomSheet,
     private router: Router
-  ){
+  ) {
     this.auth.listenToSignInStateChanges(
       user => {
         this.auth.checkSignInState(
@@ -48,7 +48,7 @@ export class AppComponent {
               this.getUserProfile();
             },
             whenChanged: user => {
-              
+
             },
           }
         );
@@ -56,34 +56,40 @@ export class AppComponent {
     );
   }
 
-  getUserProfile(){
+
+
+  getUserProfile() {
     this.firestore.listenToDocument(
       {
-        name: "Pegando Documento",
-        path: ["Users", this.auth.getAuth().currentUser.uid],
+        name: "Recebendo documento...",
+        path: ["Users", this.auth?.getAuth()?.currentUser?.uid || '{}'],
+
         onUpdate: (result) => {
           this.userDocument = <UserDocument>result.data();
-
           this.userHasProfile = result.exists;
+          if (this.userHasProfile) {
+            this.router.navigate(["feed"]);
+
+          }
         }
       }
     );
   }
 
-  onLogoutClick(){
+  onLogoutClick() {
     this.auth.signOut();
   }
 
-  loggedIn(){
+  loggedIn() {
     return this.auth.isSignedIn();
   }
 
-  onloginClick(){
-    this.loginSheet.open (LoginComponent)
+  onloginClick() {
+    this.loginSheet.open(LoginComponent)
   }
 }
 
 export interface UserDocument {
   publicName: string;
-  description: string;  
+  description: string;
 }

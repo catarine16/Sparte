@@ -1,48 +1,46 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, input } from '@angular/core';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrl: './perfil.component.css'
 })
 export class PerfilComponent implements OnInit {
-  @Input() show: boolean;
-
+  @Input() show: boolean = false ;
   firestore: FirebaseTSFirestore;
   auth: FirebaseTSAuth;
 
-  constructor() {
+  constructor (){
     this.firestore = new FirebaseTSFirestore();
-    this.auth = new FirebaseTSAuth();
+    this.auth= new FirebaseTSAuth();
   }
-
   ngOnInit(): void {
+    
   }
-
-  onContinueClick(
+  onContinuarClick(
     nameInput: HTMLInputElement,
-    descriptionInput: HTMLTextAreaElement,
-  ) {
-    let name = nameInput.value;
-    let description = descriptionInput.value;
-    this.firestore.create(
-      {
-        path: ["Users", this.auth.getAuth().currentUser.uid],
-        data: {
-          publicName: name,
-          description: description,
-        },
-        onComplete: (docId) => {
-          alert("Perfil Criado");
-          nameInput.value = "";
-          descriptionInput.value = "";
-        },
-        onFail: err => {
-          alert("")
-        }
-      }
-    );
-  }
+    descricaoInput: HTMLTextAreaElement
 
+  ){
+    let name = nameInput.value;
+    let descricao = descricaoInput.value;
+    this.firestore.create({
+      path: ["Users",  this.auth?.getAuth()?.currentUser?.uid || '{}'],
+      data:{
+            publlicName: name,
+            descricao: descricao,
+      },
+      onComplete: (docId) =>{
+        alert ("Perfil Criado")
+        nameInput.value = "";
+      },
+      onFail: (err) => {
+        
+      }
+        
+
+    })
+  }
 }

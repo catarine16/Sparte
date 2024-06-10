@@ -16,4 +16,5 @@ export class TopbarComponent {
       this.renderer.setStyle(navbar, 'left', '-250px');
     } 
   }
-}
+  
+} 

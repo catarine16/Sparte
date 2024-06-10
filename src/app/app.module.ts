@@ -20,11 +20,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 //firebase
 import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { VerificarEmailComponent } from './pages/verificar-email/verificar-email.component';
 import { PerfilComponent } from './tools/perfil/perfil.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
+import { FeedComponent } from './pages/feed/feed.component';
+import { PostagemComponent } from './tools/postagem/postagem.component';
 
 
 
@@ -43,7 +47,9 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
     TopbarComponent,
     AuthenticatorComponent,
     VerificarEmailComponent,
-    PerfilComponent
+    PerfilComponent,
+    FeedComponent,
+    PostagemComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
     MatBottomSheetModule,
     MatButtonModule,
     MatBottomSheetModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -10,6 +10,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 import { EstudosComponent } from './pages/estudos/estudos.component';
 import { VerificarEmailComponent } from './pages/verificar-email/verificar-email.component';
+import { FeedComponent } from './pages/feed/feed.component';
 
 const routes: Routes = [
   {path: '', component: MainscreenComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path:'arts', component: ArtsComponent},
   {path: 'inspiracao', component: InspiracaoComponent},
   {path: "verificarEmail", component: VerificarEmailComponent},
-
+  {path: "feed", component:FeedComponent}
 ];
 
 @NgModule({
