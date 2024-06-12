@@ -10,6 +10,7 @@ import { FirebaseTSFirestore, OrderBy, Where, Limit } from 'firebasets/firebaset
 export class FeedComponent implements OnInit {
   firestore = new FirebaseTSFirestore();
   posts: PostData [] = [];
+post: any;
   constructor(private dialog: MatDialog){ }
   ngOnInit(): void {
     this.getPosts();

@@ -1,14 +1,16 @@
+
 #photo-upload{
    display:none ;
 }
 textarea{
-    font-size: 1.5em;
+    font-size: 1em;
     padding: 1em;
     resize: none;
-    width: 250px;
+    width: 500px;
     min-height: 200px;
     border: none;
     outline: none;
+    font-family: "Poppins";
 }
 
 #post-preview{
@@ -24,4 +26,9 @@ textarea{
     border-radius: 2em;
     border: 3px dashed rgb(0, 0, 0);
 
+}
+.post{
+  width: 500px;
+  overflow: hidden;
+  font-family: "Poppins";
 }

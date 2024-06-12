@@ -15,7 +15,8 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument!: UserDocument
+  userDocument!: UserDocument  
+  // o ! foi inserido apenas para eliminar os alertas e não necessariamente resolve os bugs
 
 
   ngOnInit(): void {

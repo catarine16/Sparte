@@ -74,7 +74,7 @@ export class PostagemComponent implements OnInit {
       ev => {
         let readableString = filesReader.result?.toString();
         let postPreviewImage = <HTMLImageElement>document.getElementById("post-preview-image");
-        // postPreviewImage.src? = readableString; bugs
+        //  postPreviewImage.src = readableString;
       }
 
 
