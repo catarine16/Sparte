@@ -15,7 +15,8 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument!: UserDocument  
+  userDocument!: UserDocument; //comando embaixo mostra outro erro
+  //private static userDocument: UserDocument;
   // o ! foi inserido apenas para eliminar os alertas e não necessariamente resolve os bugs
 
 
@@ -31,6 +32,10 @@ export class AppComponent {
     document.body.appendChild(img);
   }
 
+
+
+
+
   constructor(private loginSheet: MatBottomSheet,
     private router: Router
   ) {
@@ -41,6 +46,7 @@ export class AppComponent {
             whenSignedIn: user => {
             },
             whenSignedOut: user => {
+              AppComponent.userDocument = null;
             },
             whenSignedInAndEmailNotVerified: user => {
               this.router.navigate(["verificarEmail"]);
@@ -58,6 +64,17 @@ export class AppComponent {
   }
 
 
+  public static getUserDocument(){
+    return AppComponent.userDocument;
+  }
+
+  getUserName(){
+    try {
+      return AppComponent.userDocument.publicName;
+    } catch (err) {
+      
+    }
+  }
 
   getUserProfile() {
     this.firestore.listenToDocument(
@@ -66,8 +83,9 @@ export class AppComponent {
         path: ["Users", this.auth?.getAuth()?.currentUser?.uid || '{}'],
 
         onUpdate: (result) => {
-          this.userDocument = <UserDocument>result.data();
+          AppComponent.userDocument = <UserDocument>result.data();
           this.userHasProfile = result.exists;
+          AppComponent.userDocument.userId = this.auth.getAuth().currentUser?.uid;
           if (this.userHasProfile) {
             //this.router.navigate(["feed"]);
 
@@ -93,4 +111,5 @@ export class AppComponent {
 export interface UserDocument {
   publicName: string;
   description: string;
+  userId: string;
 }
