@@ -28,34 +28,20 @@ main{
 .home-text p{
     margin-bottom: 4rem;
 }
-.home-btn{
-    background-color: #ff7a52;
-    padding: 15px 45px;
-    color: #b13402;
-    border-radius: 30px;
-    font-weight: 700;
-    transition: all 0.5s;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
-    margin-right: 20px;
-    text-decoration: none;
-}
-.home-btn:hover{
-    background: #ff4949;
-    color: #640404;
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.4);
-}
+
 .home-btn1{
     background-color: #b288ff;
-    padding: 15px 45px;
+    padding: 15px 55px;
     color: #6c2cff;
     border-radius: 30px;
     font-weight: 700;
     transition: all 0.5s;
     margin-right: 15px;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4);
     margin-right: 20px;
     text-decoration: none;
-    width: 500px;
+    width: 400px;
+    letter-spacing: 3px;
 }
 .home-btn1:hover{
     background: #d388ff;
@@ -72,7 +58,7 @@ main{
 
 .h1-img1 img {
     position: relative; 
-    left: 50%; 
+    left: 60%; 
     transform: translateX(-78%); 
 }
 
@@ -86,7 +72,7 @@ main{
     height: auto; 
 }
 
-@media (max-width:785px) {
+@media (max-width:765px) {
    
     .home{
         padding: 100px 2%;
@@ -99,6 +85,7 @@ main{
         font-size: 15px;
     }
     .home .text-h1{
+        margin-top: 100px;
         font-size: 2.5rem;
         line-height: 3rem;
     }
@@ -107,5 +94,19 @@ main{
     }
     .home-img{
         width: 125%;
+    }
+    .h1-img {
+        display: none;
+    }
+
+    .home-btn1{
+        width: 200px;
+    }
+
+    .h1-img1 img{
+    position: relative;
+    transform: translateX(-78%); 
+    
+
     }
 }

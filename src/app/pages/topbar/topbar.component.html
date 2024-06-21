@@ -12,15 +12,15 @@
       <li><a href="/sobrenos"><i class="bx bx-info-circle"></i> Sobre nós</a></li>
   </ul>
   <div class="item" style="color: #3d3d3d; font-weight: bold; ">
-    <div *ngIf="!loggedIn()" (click)="onloginClick()" class="nav-bar-items" style="color: #0fbc09; background-color: rgb(149, 251, 47); padding: 10px; border-radius: 10px; text-align: center;">Logar :) </div>
+    <div *ngIf="!loggedIn()" (click)="onloginClick()" class="nav-bar-items1" style="color: #0fbc09; background-color: rgb(149, 251, 47); padding: 15px; border-radius: 20px; text-align: center; cursor: pointer;">Logar</div>
    
-    <div  *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items" style="color: #feabab; background-color: rgb(255, 0, 0); padding: 10px; border-radius: 10px;" > Sair  :( </div>
+    <div  *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items1" style="color: #feabab; background-color: rgb(255, 0, 0); padding: 10px; border-radius: 20px; cursor: pointer;" >Sair</div>
 </div>
     </nav>
     <ul class="head-hd">
         <div class="menu-icon" (click)="toggleNavbar()">&#9776;</div>
         <div class="head-item">
-            <a class="head-link" href="/"><img src=". /img/logo-sparte.png" alt="" width="120px" style="margin-left: 10px;"></a>
+            <a class="head-link" href="/"><img src="/img/logo-sparte.png" alt="" width="120px"></a>
           </div>
           <a href="/"class="item" style="color: #3d3d3d;" >Home </a>
           <a href="/feed" class="item" style="color: #3d3d3d;"> Postagens </a>
@@ -33,9 +33,9 @@
                
                   </div>
                   <div class="item" style="color: #3d3d3d; font-weight: bold; ">
-                      <div *ngIf="!loggedIn()" (click)="onloginClick()" class="nav-bar-items" style="color: #0fbc09; background-color: rgb(149, 251, 47); padding: 10px; border-radius: 10px; width: 80px; margin-left: 150px; text-align: center;">Logar :) </div>
+                      <div *ngIf="!loggedIn()" (click)="onloginClick()" class="nav-bar-items" style="color: #0fbc09; background-color: rgb(149, 251, 47); padding: 10px; border-radius: 20px; width: 80px; text-align: center; cursor: pointer;">Logar</div>
                      
-                      <div  *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items" style="color: #feabab; background-color: rgb(255, 0, 0); padding: 10px; border-radius: 10px; width: 50px; margin-left: 150px;" > Sair  :( </div>
+                      <div  *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items" style="color: #feabab; background-color: rgb(255, 0, 0); padding: 10px; border-radius: 20px; width: 50px; cursor: pointer;" >Sair</div>
                   </div>
               </div>
           </div>

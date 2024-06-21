@@ -1,28 +1,11 @@
-
+/* Estilos base */
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 0px;
+    padding: 0;
     z-index: 999;
-}
-
-
-.navbar img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    right: 12px;
-    position: relative;
-    max-width: 100%;
-    height: auto;
-    margin-top: -11.75rem;
-}
-
-
-.navbar li{
-  margin-top: 1.25rem;
 }
 
 .navbar {
@@ -39,6 +22,14 @@ header {
     align-items: center;
 }
 
+.navbar img {
+    width: 100px;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px; /* Ajuste conforme necessário */
+}
+
 .navbar ul {
     list-style: none;
     padding: 0;
@@ -46,20 +37,19 @@ header {
 
 .navbar li {
     padding: 20px;
+    margin-top: 1.25rem;
 }
 
 .navbar a {
     font-weight: bold;
     text-decoration: none;
     color: #272727;
-    padding: 0px;
+    padding: 0;
     border: none;
     transition: background-color 0.3s, color 0.3s;
-    font-optical-sizing: auto;
-    font-size: 17px;
+    font-size: 17px; /* Tamanho base do texto */
     position: relative;
 }
-
 
 .navbar a::before {
     content: '';
@@ -81,7 +71,6 @@ header {
     background-color: #811300;
 }
 
-
 .navbar button {
     position: absolute;
     top: 10px;
@@ -100,15 +89,18 @@ header {
     background-color: #b95a2e;
 }
 
+/* Estilos para itens do menu */
 a.item {
-    font-size: 13pt;
+    display: flex;
+    font-size: 12pt;
     text-align: center;
     text-decoration: none;
-    margin-right: 60px;
-    margin-left: 70px;
     font-weight: 600;
     color: #3d3d3d;
     position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Espaçamento entre os itens */
 }
 
 a.item::before {
@@ -127,48 +119,62 @@ a.item:hover::before {
     background-color: #735286;
 }
 
-
+/* Estilos para o cabeçalho principal */
 .head-hd {
     display: flex;
+    justify-content: space-between; /* Distribui os elementos no espaço disponível */
     align-items: center;
-    list-style: none;
-    padding: 0;
-    height: 65px;
+    padding: 0 20px; /* Espaçamento interno do cabeçalho */
 }
 
-/*//////////////////////////*/
-
-
-.head-item {
-    margin-right: 245px;
-    text-align: center;
+.head-item img{
+    margin-right: 70px; /* Margem à direita automática para ajustar à esquerda */
 }
 
 .menu-icon {
+    font-size: 1.875rem; /* Tamanho do ícone do menu */
     color: #7e0d05;
-    font-size: 1.875rem; /* 30px convertido para rem */
-    margin-right: 1.875rem; /* 30px convertido para rem */
     cursor: pointer;
-    padding-left: 1.25rem; /* 20px convertido para rem */
+    padding: 0.625rem; /* Espaçamento do ícone do menu */
 }
-
 
 
 /* RESPONSIVIDADEZINHA */
 /* Estilos para dispositivos móveis */
 @media only screen and (max-width: 599) {
     .navbar {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 15%;
+        width: 100%;
         padding: 7px;
-        z-index: 1000;
         font-size: 7pt;
     }
 
+    .navbar img {
+        width: 7rem; /* Reduzindo a largura da imagem */
+        margin-top: 0;
+        margin-left: 0;
+        display: flex;
+        position: relative;
+    }
+
+    .close-button {
+        font-size: 20px;
+        color: white;
+    }
+
+    .head-hd {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    a.item {
+        display: none; /* Oculta completamente os itens */
+    }
+
+    .nav-bar-items{
+        display: none;
+    }
 }
+
 /* Estilos para dispositivos móveis */
 @media only screen and (max-width: 600px) {
     .navbar {
@@ -182,11 +188,12 @@ a.item:hover::before {
         font-size: 7pt;
     }
     .navbar img{
-      width: -2rem; /* Reduzindo a largura da imagem */
-      height: -2rem; /* Reduzindo a altura da imagem */
-      margin-top: -1rem;
-      margin-left: 2.2rem ;
-  }
+      width: 7rem; /* Reduzindo a largura da imagem */
+      margin-top: 0;
+      margin-left: 0;
+      display: flex;
+      position: relative;
+    }
 .navbar li{
   margin-top: 1.25rem;
 }
@@ -221,20 +228,6 @@ a.item:hover::before {
         padding: 10px;
     }
 
-    .head-hd {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .head-hd .nav {
-        display: none;
-    }
-
-    .head-item {
-        display: flex;
-        align-items: center;
-    }
 
     .search-input {
         width: 20px;
@@ -252,18 +245,38 @@ a.item:hover::before {
         display: none;
     }
 
-    .head-link {
-        margin-left: 7rem;
+    .head-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px;
     }
 
-    .perfil {
+    .head-hd .nav {
         display: none;
     }
 
-    .head-link {
-       align-items: center;
+    .head-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
     }
-  }
+
+    .head-link {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    a.item {
+        display: none; /* Oculta completamente os itens */
+    }
+
+    .nav-bar-items{
+        display: none;
+    }
+}
 
   @media (min-width: 601px) and (max-width: 1135px) {
     .perfil {
@@ -280,12 +293,47 @@ a.item:hover::before {
         width: 80px;
         height: 80px;
         margin-top: -10.5rem;
-        margin-left: 2.2rem;
+    }
+    .head-hd {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .head-item {
+        margin-right: 0;
+    }
+
+    .head-link {
+        margin-left: 0;
+    }
+
+    a.item {
+        margin-right: 20px;
+        margin-left: 20px;
+        font-size: 10pt;
+        justify-content: center;
+    }
+
+    .nav-bar-items{
+        display: none;
     }
 }
 
-
 /* Estilos para monitores médios e grandes */
 @media (min-width: 1136px) {
-    /* Adicione qualquer estilo específico para telas grandes aqui */
-}
+    .head-hd {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .head-item {
+        margin-right: 245px;
+    }
+
+
+    a.item {
+        margin-right: 60px;
+        font-size: 11pt;
+        justify-content: center;
+    }
+}   /* Adicione qualquer estilo específico para telas grandes aqui */

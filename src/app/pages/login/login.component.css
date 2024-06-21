@@ -21,14 +21,15 @@
 
 button {
     margin: .5em;
-    border-radius: 25px;
+    border-radius: 65px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 input {
     width: 100%;
     padding: 1em;
     margin: .9em 0;
-    border-radius: 20px;
+    border-radius: 50px;
     outline: none;
     border: 1px solid rgba(15, 15, 15, .3);
     box-sizing: border-box;
