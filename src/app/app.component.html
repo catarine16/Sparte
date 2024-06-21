@@ -6,21 +6,8 @@
 </head>
 
 <body>
-  <app-topbar></app-topbar>
-     <div id="nav-bar">
-    <div id="nav-bar-content">
-        <div id="nav-bar-left">
-     
-        </div>
-        <div id="nav-bar-right">
-            <div *ngIf="!loggedIn()" (click)="onloginClick()" class="nav-bar-items">Login</div>
-            <div *ngIf="loggedIn() && userHasProfile" class="nav-bar-items" >
-              Hello, {{getUserName}}
-            </div>
-            <div  *ngIf="loggedIn()" (click)="onLogoutClick()" class="nav-bar-items" >Logout</div>
-        </div>
-    </div>
-</div>
+ <app-topbar></app-topbar>
+
  <!-- isso aqui tem dois roles: 1- não tá mostrando o nome depois do Hello 2- e tem que junto isso no navbar -->
 
     

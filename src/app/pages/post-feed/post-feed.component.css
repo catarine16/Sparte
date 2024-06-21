@@ -1,0 +1,13 @@
+#post-button{
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+}
+#post-feed{
+    max-width: 600px;
+    min-height: 500px;
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    
+}

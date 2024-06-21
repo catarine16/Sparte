@@ -27,10 +27,13 @@ import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 import { VerificarEmailComponent } from './pages/verificar-email/verificar-email.component';
 import { PerfilComponent } from './tools/perfil/perfil.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-import { FeedComponent } from './pages/feed/feed.component';
-import { PostagemComponent } from './tools/postagem/postagem.component';
+// import { FeedComponent } from './pages/feed/feed.component';
+// import { PostagemComponent } from './tools/postagem/postagem.component';
+// import { PostComponent } from './tools/post/post.component';
+
+import { PostFeedComponent } from './pages/post-feed/post-feed.component';
+import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
-import { ReplyComponent } from './tools/reply/reply.component';
 
 
 
@@ -50,10 +53,13 @@ import { ReplyComponent } from './tools/reply/reply.component';
     AuthenticatorComponent,
     VerificarEmailComponent,
     PerfilComponent,
-    FeedComponent,
-    PostagemComponent,
-    PostComponent,
-    ReplyComponent
+    // FeedComponent,
+    // PostagemComponent,
+    // PostComponent,
+   
+    PostFeedComponent,
+    CreatePostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

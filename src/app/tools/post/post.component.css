@@ -1,4 +1,16 @@
-.action-item{
+#action-item{
     margin-left: .5em;
     cursor: pointer;
+
+}
+
+#post-card{
+    margin-top: 20px ;
+    margin-bottom: 20px;
+    background-color: #E6E6FA;
+}
+#post-card img {
+    max-width: 400px;
+   display: block;
+      margin: 0 auto;
 }
