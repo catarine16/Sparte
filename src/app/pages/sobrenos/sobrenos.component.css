@@ -17,9 +17,10 @@
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    width: 44%;
+    width: 39%;
     border-radius: 20px;
     padding: 30px;
+    margin-bottom: 80px;
   }
    
   .person img {
@@ -61,7 +62,7 @@
   .container-sparte{
     background-color: #ffb765;
     margin: 0 auto;
-    width: 90%;
+    width: 80%;
     line-height: 1.5;
    font-size: medium;
    padding: 50px;

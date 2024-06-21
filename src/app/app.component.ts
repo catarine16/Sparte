@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   title = 'Sparte';
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
-  userHasProfile = false;  // Initialized to a default value
-  userDocument: UserDocument | null = null;  // Properly typed and initialized to null
+  userHasProfile = false; 
+  userDocument: UserDocument | null = null; 
   static userDocument: UserDocument | null;
 
   constructor(private loginSheet: MatBottomSheet,
@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
         },
         whenSignedOut: user => {
           this.userDocument = null;
+          
         },
         whenSignedInAndEmailNotVerified: user => {
           this.router.navigate(["verificarEmail"]);
@@ -72,7 +73,7 @@ export class AppComponent implements OnInit {
             this.userDocument = <UserDocument>result.data();
             this.userDocument.userId = userId;  // Ensure userId is assigned
             this.userHasProfile = true;  // Indicate profile existence
-            // this.router.navigate(["feed"]);  // Uncomment if navigation is needed
+            this.router.navigate(["feed"]);  // Uncomment if navigation is needed
           } else {
             this.userDocument = null;
             this.userHasProfile = false;  // Indicate absence of profile
