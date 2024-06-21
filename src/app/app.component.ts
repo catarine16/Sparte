@@ -15,9 +15,7 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument!: UserDocument; //comando embaixo mostra outro erro
-  //private static userDocument: UserDocument;
-  // o ! foi inserido apenas para eliminar os alertas e não necessariamente resolve os bugs
+  static userDocument: UserDocument;
 
 
   ngOnInit(): void {
@@ -30,6 +28,7 @@ export class AppComponent {
     img.style.height = "100vh";
     img.style.zIndex = "-1";
     document.body.appendChild(img);
+
   }
 
 
@@ -39,6 +38,7 @@ export class AppComponent {
   constructor(private loginSheet: MatBottomSheet,
     private router: Router
   ) {
+
     this.auth.listenToSignInStateChanges(
       user => {
         this.auth.checkSignInState(
@@ -46,7 +46,7 @@ export class AppComponent {
             whenSignedIn: user => {
             },
             whenSignedOut: user => {
-              AppComponent.userDocument = null;
+              //AppComponent.setUserDocument();
             },
             whenSignedInAndEmailNotVerified: user => {
               this.router.navigate(["verificarEmail"]);
@@ -68,11 +68,15 @@ export class AppComponent {
     return AppComponent.userDocument;
   }
 
+public static setUserDocument(vlr : UserDocument){
+    AppComponent.userDocument = vlr;
+  }
+  
   getUserName(){
     try {
       return AppComponent.userDocument.publicName;
     } catch (err) {
-      
+      return null;
     }
   }
 
@@ -85,7 +89,7 @@ export class AppComponent {
         onUpdate: (result) => {
           AppComponent.userDocument = <UserDocument>result.data();
           this.userHasProfile = result.exists;
-          AppComponent.userDocument.userId = this.auth.getAuth().currentUser?.uid;
+          AppComponent.userDocument.userId = this.auth?.getAuth()?.currentUser?.uid || '{}';
           if (this.userHasProfile) {
             //this.router.navigate(["feed"]);
 
