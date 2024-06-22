@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 
 //pages
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,8 @@ import { TopbarComponent } from './pages/topbar/topbar.component';
 import { environment } from '../environments/environment';
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
 //angular material
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; 
+// import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';

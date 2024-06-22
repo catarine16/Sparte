@@ -7,6 +7,7 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
   styleUrl: './post.component.css'
 })
 export class PostComponent implements OnInit {
+[x: string]: any;
   @Input() postData!: PostData;
   // creatorName: string;
   // creatorDescrption: string;

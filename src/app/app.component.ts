@@ -1,27 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { LoginComponent } from './pages/login/login.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
-
+import { Router } from '@angular/router';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']  
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Sparte';
   auth = new FirebaseTSAuth();
   firestore = new FirebaseTSFirestore();
-  userHasProfile = true;
-  static userDocument: UserDocument;
+  userHasProfile = false; 
+  userDocument: UserDocument | null = null; 
+  static userDocument: UserDocument | null;
 
+  constructor(private loginSheet: MatBottomSheet,
+              private router: Router) {
+    this.auth.listenToSignInStateChanges(user => {
+      this.auth.checkSignInState({
+        whenSignedIn: user => {
+          
+        },
+        whenSignedOut: user => {
+          this.userDocument = null;
+          
+        },
+        whenSignedInAndEmailNotVerified: user => {
+          this.router.navigate(["verificarEmail"]);
+        },
+        whenSignedInAndEmailVerified: user => {
+          this.getUserProfile();
+        },
+        whenChanged: user => {
+          // Logic to handle state changes can be added here
+        },
+      });
+    });
+  }
 
   ngOnInit(): void {
     const img: HTMLImageElement = document.createElement("img");
-    img.src = " /img/back2.png";
+    img.src = "/img/back2.png";
     img.style.position = "fixed";
     img.style.top = "0";
     img.style.left = "0";
@@ -29,89 +52,49 @@ export class AppComponent {
     img.style.height = "100vh";
     img.style.zIndex = "-1";
     document.body.appendChild(img);
-
   }
 
-
-
-
-
-  constructor(private loginSheet: MatBottomSheet,
-    private router: Router
-  ) {
-
-    this.auth.listenToSignInStateChanges(
-      user => {
-        this.auth.checkSignInState(
-          {
-            whenSignedIn: user => {
-            },
-            whenSignedOut: user => {
-              this.router.navigate([""]);
-            },
-            whenSignedInAndEmailNotVerified: user => {
-              this.router.navigate(["verificarEmail"]);
-            },
-            whenSignedInAndEmailVerified: user => {
-              this.getUserProfile();
-            },
-            whenChanged: user => {
-
-            },
-          }
-        );
-      }
-    );
+  static getUserDocument(): UserDocument | null {
+    return this.userDocument;  
   }
 
-
-  public static getUserDocument(){
-    return AppComponent.userDocument;
-  }
-
-public static setUserDocument(vlr : UserDocument){
-    AppComponent.userDocument = vlr;
-  }
-  
-  getUserName(){
-    try {
-      return AppComponent.userDocument.publicName;
-    } catch (err) {
-      return null;
-    }
+  getUserName(): string | undefined {
+    return this.userDocument?.publicName;  
   }
 
   getUserProfile() {
-    this.firestore.listenToDocument(
-      {
+    const userId = this.auth.getAuth().currentUser?.uid;
+    if (userId) {
+      this.firestore.listenToDocument({
         name: "Recebendo documento...",
-        path: ["Users", this.auth?.getAuth()?.currentUser?.uid || '{}'],
-
+        path: ["Users", userId],
         onUpdate: (result) => {
-          AppComponent.userDocument = <UserDocument>result.data();
-          this.userHasProfile = result.exists;
-          AppComponent.userDocument.userId = this.auth?.getAuth()?.currentUser?.uid || '{}';
-          if (this.userHasProfile) {
-          this.router.navigate(["feed"]);
-
+          if (result.exists) {
+            this.userDocument = <UserDocument>result.data();
+            this.userDocument.userId = userId;  // Ensure userId is assigned
+            this.userHasProfile = true;  // Indicate profile existence
+            this.router.navigate(["feed"]);  // Uncomment if navigation is needed
+          } else {
+            this.userDocument = null;
+            this.userHasProfile = false;  // Indicate absence of profile
           }
         }
-      }
-    );
+      });
+    } else {
+      console.warn("No user is currently signed in.");
+    }
   }
 
   onLogoutClick() {
     this.auth.signOut();
-    this.router.navigate([""])
-  
   }
 
-  loggedIn() {
+  loggedIn(): boolean {
     return this.auth.isSignedIn();
   }
 
-  onloginClick() {
-    this.loginSheet.open(LoginComponent)
+  onLoginClick() {
+    this.loginSheet.open(LoginComponent);
   }
 }
 
