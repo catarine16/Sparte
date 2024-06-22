@@ -8,7 +8,7 @@ import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFi
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']  // Changed to styleUrls
+  styleUrls: ['./app.component.css']  
 })
 export class AppComponent implements OnInit {
   title = 'Sparte';
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.auth.listenToSignInStateChanges(user => {
       this.auth.checkSignInState({
         whenSignedIn: user => {
-          // Additional logic can be added here if needed
+          
         },
         whenSignedOut: user => {
           this.userDocument = null;
@@ -55,11 +55,11 @@ export class AppComponent implements OnInit {
   }
 
   static getUserDocument(): UserDocument | null {
-    return this.userDocument;  // Static access still allowed, though it's better to reconsider this design
+    return this.userDocument;  
   }
 
   getUserName(): string | undefined {
-    return this.userDocument?.publicName;  // Optional chaining to safely access publicName
+    return this.userDocument?.publicName;  
   }
 
   getUserProfile() {
