@@ -3,6 +3,7 @@ import { LoginComponent } from '../login/login.component';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AppComponent } from '../../app.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
@@ -12,7 +13,7 @@ export class TopbarComponent {
   isNavbarOpen = false; 
   auth = new FirebaseTSAuth ();
   userHasProfile = true;
-  constructor(private el: ElementRef, private renderer: Renderer2, private loginSheet: MatBottomSheet) {}
+  constructor(private el: ElementRef, private renderer: Renderer2, private loginSheet: MatBottomSheet , private router: Router) {}
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
     const navbar = this.el.nativeElement.querySelector('.navbar');
@@ -26,6 +27,7 @@ export class TopbarComponent {
 
   onLogoutClick() {
     this.auth.signOut();
+    this.router.navigate(['/']); 
   }
 
   loggedIn() {

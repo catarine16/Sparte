@@ -44,7 +44,8 @@ onLogin( loginEmail: HTMLInputElement,
           this.bottomSheetReef.dismiss();
         },
         onFail: (err) => {
-          alert (err);
+          alert ("Usuario ou senha incorretos")
+          // alert (err);
         }
       }
 

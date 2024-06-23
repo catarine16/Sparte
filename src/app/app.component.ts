@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
           this.getUserProfile();
         },
         whenChanged: user => {
-          // Logic to handle state changes can be added here
+        
         },
       });
     });
