@@ -1,16 +1,12 @@
 <mat-card id="post-card">
     <mat-card-header>
-        <mat-card-title>  </mat-card-title>
-        <mat-card-subtitle> </mat-card-subtitle>
+      <button (click)="Delete()" mat-fab color="warn" id="post-button" style="color: brown; background-color: rgb(234, 129, 129); width: 45px; height: 45px; border-radius: 100px;">
+        <mat-icon>delete</mat-icon>
+      </button>
     </mat-card-header>
-    <img class="post" mat-card-image src="{{postData.imageUrl}}">
+    <img class="post" mat-card-image [src]="postData.imageUrl">
     <mat-card-content>
-     {{postData.comment}}
+      {{ postData.comment }}
     </mat-card-content>
-    <!-- <mat-card-actions>
-          <mat-icon class="action-item" color="warm">chat_bubble_outline</mat-icon>
-          <mat-icon  class="action-item" color="warm">favorite_border</mat-icon>
-          <mat-icon  class="action-item" color="warm">save</mat-icon>
-    </mat-card-actions> -->
-
-</mat-card>
+  </mat-card>
+  

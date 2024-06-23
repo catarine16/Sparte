@@ -1,33 +1,42 @@
-import { Component, Input, OnInit, input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostData } from '../../pages/post-feed/post-feed.component';
+import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrl: './post.component.css'
+  styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-[x: string]: any;
   @Input() postData!: PostData;
-  // creatorName: string;
-  // creatorDescrption: string;
-  // firestore = new FirebaseTSFirestore;
-  constructor (){
+  private auth = new FirebaseTSAuth();
+  private firestore = new FirebaseTSFirestore();
 
-  }
-  ngOnInit(): void {
-      //  this.getCreatorInfo();
-     }
-  //  getCreatorInfo(){
-  //     this.firestore.getDocument(
-  //       {
-  //         path: ["Users", this.postData.creatorId],
-  //         onComplete: result => {
-  //           let userDocument = result.data();
-  //           this.creatorName = userDocument.publicName;
-  //           this.creatorDescrption = 
-  //         }
-  //       }
-  //     )
-  //  }
+  constructor() { }
+
+  ngOnInit(): void { }
+
+  Delete() {
+    const currentUser = this.auth.getAuth().currentUser;
+    if (currentUser && this.postData.creatorId === currentUser.uid) {
+      if (confirm('Você tem certeza que deseja deletar este post?')) {
+        if (this.postData.postId) { // Verificação de segurança
+          this.firestore.delete({
+            path: ['Posts', this.postData.postId!], // Usando o operador de não-null assertion
+            onComplete: () => {
+              console.log('Post deletado com sucesso');
+            },
+            onFail: (error) => {
+              console.error('Erro ao deletar post:', error);
+            }
+          });
+        } else {
+          console.error('Erro: postId está indefinido.');
+        }
+      }
+    } else {
+      alert('Você não tem permissão para deletar este post.');
+    }
+}
 }
