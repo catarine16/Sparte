@@ -1,16 +1,44 @@
-#action-item{
+#action-item {
     margin-left: .5em;
     cursor: pointer;
 
 }
 
-#post-card{
-    margin-top: 20px ;
+#post-card {
+    margin-top: 20px;
     margin-bottom: 20px;
- background-color: #b5b5f1;
+    background-color: #b5b5f1;
 }
+
 #post-card img {
     max-width: 400px;
-   display: block;
-      margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Container para os botões de editar e deletar */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Botão de Editar */
+#edit-button {
+    margin-left: 0;
+    color: rgb(48, 165, 42);
+    background-color: rgb(129, 234, 175);
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+}
+
+/* Botão de Deletar */
+#delete-button {
+    margin-right: 0;
+    color: brown;
+    background-color: rgb(234, 129, 129);
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
 }

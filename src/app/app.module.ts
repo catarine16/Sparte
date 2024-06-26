@@ -36,7 +36,8 @@ import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
-
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -61,7 +62,8 @@ import { PostComponent } from './tools/post/post.component';
    
     PostFeedComponent,
     CreatePostComponent,
-    PostComponent
+    PostComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { PostComponent } from './tools/post/post.component';
     MatBottomSheetModule,
     MatCardModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Editar Post</h1>
+<div mat-dialog-content>
+  <textarea [(ngModel)]="newComment" rows="3"></textarea>
+  <input type="file" (change)="onPhotoSelected($event)">
+  <img id="post-preview-image" *ngIf="newImageFile" />
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button mat-button (click)="onSaveClick()">Salvar</button>
+</div>

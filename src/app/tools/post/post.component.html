@@ -1,7 +1,32 @@
 <mat-card id="post-card">
+  <mat-card-header>
+    <div class="button-container">
+      <!-- Botão de Editar à esquerda -->
+      <button (click)="editPost()" mat-fab color="primary" id="edit-button">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <!-- Botão de Deletar à direita -->
+      <button (click)="Delete()" mat-fab color="warn" id="delete-button">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  
+  <img class="post" mat-card-image src="{{postData.imageUrl}}">
+  <mat-card-content>
+    {{postData.comment}}
+  </mat-card-content>
+</mat-card>
+
+
+<!-- <mat-card id="post-card">
     <mat-card-header>
       <button (click)="Delete()" mat-fab color="warn" id="post-button" style="color: brown; background-color: rgb(234, 129, 129); width: 45px; height: 45px; border-radius: 100px;">
         <mat-icon>delete</mat-icon>
+      </button>
+      <button (click)="editPost()" mat-fab color="primary" id="edit-button"   style="color: rgb(48, 165, 42); background-color: rgb(129, 234, 175); width: 45px; height: 45px; border-radius: 100px; ">
+        <mat-icon>edit</mat-icon>
       </button>
     </mat-card-header>
     <img class="post" mat-card-image [src]="postData.imageUrl">
@@ -9,4 +34,4 @@
       {{ postData.comment }}
     </mat-card-content>
   </mat-card>
-  
+   -->
